@@ -1,0 +1,15 @@
+Coding Guide for EV3 Robots!
+
+Note: you REQUIRE EV3 microPython extension on Visual Studio Code to properly run these programs!
+
+----------------------------------------------------------------
+
+1. Programming the Brick
+    - Displaying something to the brick face 
+         - (brick name).display.text("[text]", (x, y))
+             -for near the MIDDLE of the screen, the coordinates are (60,50), otherwise the default is at the bottom
+         - brick.display.clear()
+            - CLEARS the screen 
+
+2. Motors
+    -
