@@ -11,5 +11,69 @@ Note: you REQUIRE EV3 microPython extension on Visual Studio Code to properly ru
          - brick.display.clear()
             - CLEARS the screen 
 
-2. Motors
-    -
+2. Motors (A,B,C,D)
+    - Three potential ways of creating a Motor
+            1. (variable motor name) = Motor(Port.[letter])
+            2. varMotor = Motor(Port.A, Direction.COUNTERCLOCKWISE)
+            3. motorVar = Motor(Port.B, Direction.CLOCKWISE, [gearRatio])
+                - Note: for gears, it is always a list 
+                    -ex: [12,36] means 12-tooth with 36-tooth
+    -METHODS
+        angle() 
+            gets rotation angle
+        reset_angle(angle)
+            reset rotation angle in degrees
+        speed()
+            get speed of the motor in deg/screen
+        stop(Stop.[stop_type])
+            stop_type = COAST (no resistance), BRAKE (resist external forces), HOLD (keep holding at desired angle)
+        run(speed)
+            Keep motor running at constant angular velovity (deg/s)
+        run_time([deg/s], [ms], Stop.[stop_type], wait[boolean])
+            - wait parameter has the program not proceed until gone time [ms]
+        run_angle([deg/s], [deg], stop_type, wait)
+            - wait parameter halts program until [deg] has been traveled
+        run_target(speed, target_angle, stop_type, wait)
+            - speed, absolute speed of motor, direction is selected based on target angle
+
+3. Sensors (S1,S2,S3,S4)
+    1. TouchSensor(port)
+        - pressed()
+            -returns a boolean if was pressed or not
+    2. ColorSensor(port)
+        - color(), ambient(), reflection(), rgb()
+        - reflection() - measure reflection 
+            - 0 (no reflection), 100 (high reflection)
+    3. UltrasonicSensor(port)
+        - distance(bool)
+            - the boolean dictates if after reach measuring distance, it turns off
+            - returns distance from an object in sight in mm
+    4. GyroscopicSensor(port, Direction.CLOCKWISE)
+        - speed() 
+            get speed in deg/s
+        - angle()
+            get net degree turned
+        - reset_angle(angle)
+            reset sensor to angle value
+
+4. Timing and Datalogging
+    1. wait(time:ms)
+        - pauses program for specified amount of time
+    2. StopWatch()
+        - time() 
+            get current time of stopwatch in ms
+        - pause()
+            pause stopwatch
+        - resume()
+            resume stopwatch 
+        - reset()
+            reset stopwatch to 0
+
+5. Robot Base 
+    - DriveBase(left_motor, right_motor, wheel_diameter, axle_track)
+        - diameter of wheels (mm), axle_track - distance between the mdipoints of two wheels(mm)
+    - drive(speed[mm/s], turnRate[deg/s])
+        -stop(stop_type)
+            -stops robot
+    -drive_time(speed [mm/s], turnRate [deg/s], time [ms])
+

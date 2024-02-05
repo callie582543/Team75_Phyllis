@@ -1,4 +1,4 @@
-#!/usr/bin/env pybricks-micropython
+# Description: This is the main file for the EV3 robot. It is the file that is run when the robot is turned on. It is responsible for initializing the robot and running the main loop.
 from pybricks.hubs import EV3Brick
 from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,
                                  InfraredSensor, UltrasonicSensor, GyroSensor)
@@ -8,13 +8,12 @@ from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
 
-# This program requires LEGO EV3 MicroPython v2.0 or higher.
-# Click "Open user guide" on the EV3 extension tab for more information.
+# This program requires LEGO EV3 MicroPython
 
 
-# Create your objects here.
+# Create objects here.
 ev3 = EV3Brick()
 
 
-# Write your program here.
-ev3.speaker.beep()
+# Write program here.
+
